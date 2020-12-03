@@ -1,19 +1,19 @@
+import { getClients, deleteClient, } from '../../api/cliente.js';
 
-
-const removeCliente = (id) => {
-  if(confirm("Deseja deletar o cliente ?")){
+const removeClient = (id) => {
+  if (confirm("Deseja deletar o cliente ?")) {
     debugger;
-    deletaCliente(id)
+    deleteClient(id)
     window.location.reload()
   }
 }
 
-const corpoTabela = document.querySelector("[data-conteudo-tabela]");
+const bodyTable = document.querySelector("[data-conteudo-tabela]");
 
-const exibeCliente = (cpf, nome, id) => {
-    const linha = document.createElement('tr');
+const showClient = (cpf, nome, id) => {
+  const line = document.createElement('tr');
 
-    const conteudoLinha = `
+  const lineContent = `
     <td>${cpf}</td>
     <td>${nome}</td>
     <button type="button" class="btn btn-danger" onclick="removeCliente(${id})">Excluir</button>
@@ -23,19 +23,15 @@ const exibeCliente = (cpf, nome, id) => {
     
     
 `
-  
-    linha.innerHTML = conteudoLinha;
-    return linha;
-  };
-  
-  listarClientes().then( exibe => {
-  exibe.forEach(indice => {
-    corpoTabela.appendChild(exibeCliente(indice.cpf, indice.nome, indice.id))
-  })
- }
 
- )
-  
-  
- 
+  line.innerHTML = lineContent;
+  return line;
+};
 
+getClients().then(exibe => {
+    exibe.forEach(indice => {
+      bodyTable.appendChild(showClient(indice.cpf, indice.nome, indice.id))
+    })
+  }
+
+)
