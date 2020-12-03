@@ -1,4 +1,6 @@
 import { getClients, deleteClient, } from '../../api/cliente.js';
+import '../../assets/css/clientes.css';
+
 
 const removeClient = (id) => {
   if (confirm("Deseja deletar o cliente ?")) {
