@@ -1,8 +1,9 @@
 import submitEvent from "./data-client";
 
-const form = document.createElement('form');
+const initRegister = () => {
+  const form = document.createElement('form');
 
-const register = `
+  const register = `
   <div class="container">
     <div class="form-group">
       <label>CPF</label>
@@ -16,14 +17,9 @@ const register = `
   </div>
 `;
 
-form.innerHTML = register;
-
-const initRegister = () => {
-  const container = document.querySelector('[data-container]');
+  form.innerHTML = register;
 
   submitEvent(form);
-  container.innerHTML = '';
-  container.appendChild(form);
   return form;
 }
 

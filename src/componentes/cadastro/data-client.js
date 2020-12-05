@@ -5,15 +5,15 @@ const submitEvent = (form) => {
 
   form.addEventListener("submit",
     event => {
-      event.preventDefault()
+      event.preventDefault();
 
       const name = event.target.querySelector("[data-nome]").value
       const cpf = event.target.querySelector("[data-cpf]").value
 
       if (validaCPF(cpf)) {
-        createClient(name, cpf)
+        createClient(name, cpf);
       } else {
-        alert('O CPF não é válido')
+        alert('O CPF não é válido');
       }
 
 

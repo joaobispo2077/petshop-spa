@@ -1,19 +1,29 @@
 import initRegister from "./componentes/cadastro/create-client";
+import initializeTable from "./componentes/lista/listagem-cliente";
 
 const routes = {
-  "/cadastro": initRegister()
+  "/": initializeTable,
+  "/cadastro": initRegister,
 }
 
 const rootDiv = document.querySelector('[data-container]');
 
-const navigate = path => {
-  window.history.pushState({}, path, window.location.origin + path);
+const navigate = pathname => {
+  window.history.pushState({}, pathname, window.location.origin + pathname);
 
   rootDiv.innerHTML = '';
 
-  const initRoute = routes[window.location.path];
+  const initRoute = routes[window.location.pathname];
 
   rootDiv.appendChild(initRoute());
 }
 
-export default { navigate };
+window.navigate = navigate;
+
+window.onpopstate = () => {
+
+  rootDiv.innerHTML = '';
+  rootDiv.appendChild(routes[window.location.pathname]());
+}
+
+export default navigate;
