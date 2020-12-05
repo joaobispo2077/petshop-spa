@@ -26,8 +26,14 @@ const table = document.createElement('table');
 table.innerHTML = content;
 table.classList.add("table");
 
-
 container.appendChild(table);
+
+const buttonNewClient = document.querySelector('.btn');
+
+buttonNewClient.addEventListener('click', () => {
+  initRegister();
+});
+
 
 const bodyTable = document.createElement('tbody');
 

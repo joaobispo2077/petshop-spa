@@ -22,7 +22,7 @@ const initRegister = () => {
   const container = document.querySelector('[data-container]');
 
   submitEvent(form);
-
+  container.innerHTML = '';
   container.appendChild(form);
   return form;
 }

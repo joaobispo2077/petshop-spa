@@ -3,9 +3,7 @@ import { createClient } from '../../api/cliente';
 
 const submitEvent = (form) => {
 
-  const formRegisterClient = document.querySelector("[data-form]")
-
-  formRegisterClient.addEventListener("submit",
+  form.addEventListener("submit",
     event => {
       event.preventDefault()
 
