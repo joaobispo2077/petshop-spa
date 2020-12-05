@@ -1,6 +1,6 @@
 import { getClients, deleteClient, } from '../../api/cliente.js';
 import '../../assets/css/clientes.css';
-
+import initRegister from '../cadastro/create-client';
 
 const removeClient = (id) => {
   if (confirm("Deseja deletar o cliente ?")) {
@@ -9,8 +9,27 @@ const removeClient = (id) => {
     window.location.reload()
   }
 }
+const content = `
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">CPF</th>
+    <th scope="col"></th>
+    <th scope="col"><a class="btn btn-primary">Novo Cliente</a></th>
+    </tr>
+  </thead>
+`;
 
-const bodyTable = document.querySelector("[data-conteudo-tabela]");
+const container = document.querySelector('[data-container]');
+const table = document.createElement('table');
+
+table.innerHTML = content;
+table.classList.add("table");
+
+
+container.appendChild(table);
+
+const bodyTable = document.createElement('tbody');
 
 const showClient = (cpf, nome, id) => {
   const line = document.createElement('tr');
@@ -37,3 +56,5 @@ getClients().then(exibe => {
   }
 
 )
+
+table.appendChild(bodyTable);
