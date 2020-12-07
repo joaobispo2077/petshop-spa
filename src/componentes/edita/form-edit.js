@@ -1,6 +1,8 @@
-const initializeFormEdit = () => {
+import formEvent from "./edit-client";
 
-  const form = document.createElement(form);
+const initializeFormEdit = () => {
+  const form = document.createElement('form');
+
 
   const formEdit = `
   <div class="container">
@@ -18,4 +20,8 @@ const initializeFormEdit = () => {
 
   form.innerHTML = formEdit;
 
+  formEvent(form);
+
+  return form;
 }
+export default initializeFormEdit;

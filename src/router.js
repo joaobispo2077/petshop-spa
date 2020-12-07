@@ -1,9 +1,11 @@
 import initRegister from "./componentes/cadastro/create-client";
 import initializeTable from "./componentes/lista/listagem-cliente";
+import initializeFormEdit from "./componentes/edita/form-edit";
 
 const routes = {
   "/": initializeTable,
   "/cadastro": initRegister,
+  "/edita": initializeFormEdit,
 }
 
 const rootDiv = document.querySelector('[data-container]');

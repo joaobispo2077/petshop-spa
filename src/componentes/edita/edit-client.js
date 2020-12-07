@@ -1,4 +1,4 @@
-import { getClientById, updateClient } from '../../api/client';
+import { getClientById, updateClient } from '../../api/cliente';
 import validaCPF from '../valida/validaCPF';
 
 const formEvent = form => {
@@ -8,8 +8,8 @@ const formEvent = form => {
 
   const id = pegaURL.searchParams.get('id')
 
-  const inputCPF = document.querySelector('[data-cpf]')
-  const inputNome = document.querySelector('[data-nome]')
+  const inputCPF = form.querySelector('[data-cpf]')
+  const inputNome = form.querySelector('[data-nome]')
 
   getClientById(id).then(dados => {
     inputCPF.value = dados[0].cpf
