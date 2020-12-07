@@ -9,6 +9,17 @@ const removeClient = (id) => {
     window.location.reload()
   }
 }
+const createButtonRemove = (id) => {
+  const button = document.createElement('button');
+  button.classList.add('btn', 'btn-danger');
+  button.innerHTML = 'Excluir';
+
+  button.addEventListener('click', () => {
+    removeClient(id)
+  })
+
+  return button;
+}
 
 const createBodyTable = (table) => {
   const bodyTable = document.createElement('tbody');
@@ -19,11 +30,12 @@ const createBodyTable = (table) => {
     const lineheader = `
       <td>${cpf}</td>
       <td>${nome}</td>
-      <button type="button" class="btn btn-danger" onclick="removeCliente(${id})">Excluir</button>
+      
       <button type=""button class="btn btn-info" onclick="navigate('/edita?id=${id}'); return false;"">Editar</button>   
       `
 
     line.innerHTML = lineheader;
+    line.appendChild(createButtonRemove(id));
     return line;
   };
 
